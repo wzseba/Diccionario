@@ -1,7 +1,7 @@
 package diccionario;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -11,7 +11,7 @@ public class Diccionario {
 	private Map<String, String> diccionario;
 
 	public Diccionario() {
-		this.diccionario = new HashMap<String, String>();
+		this.diccionario = new LinkedHashMap<String, String>();
 	}
 
 	public void nuevoPar(String esp, String ing) {
@@ -20,6 +20,7 @@ public class Diccionario {
 
 	public String traduce(String esp) {
 		String traduccion = diccionario.get(esp);
+
 		if (traduccion != null) {
 			return traduccion;
 		}
@@ -35,10 +36,12 @@ public class Diccionario {
 	}
 
 	public String palabraAleatoreaConNum(int indice) {
-		return "";
+		List<String> claves = new ArrayList<String>(diccionario.keySet());
+
+		return claves.get(indice);
 	}
 
 	public String primeraLetraTraduccion(String esp) {
-		return "1 letra en ing";
+		return traduce(esp).substring(0, 1);
 	}
 }
