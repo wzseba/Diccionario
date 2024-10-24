@@ -1,5 +1,6 @@
 package testing;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +23,17 @@ class DiccionarioTest {
 
 	@Test
 	void testNuevoPar() {
-//		assertTrue();
+		assertTrue(dic.getDiccionario().containsKey("perro"));
+	}
+
+	@Test
+	void testTraduce() {
+		assertEquals("car", dic.traduce("auto"));
+	}
+
+	@Test
+	void testPrimeraLetraTraduccion() {
+		assertEquals("d", dic.primeraLetraTraduccion("PERRO"));
 	}
 
 	@Test
