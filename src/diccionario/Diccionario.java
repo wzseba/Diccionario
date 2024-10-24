@@ -11,6 +11,7 @@ public class Diccionario {
 	private Map<String, String> diccionario;
 
 	public Diccionario() {
+		// https://github.com/ppandomail/poo/blob/main/doc/06-colecciones-contenido.md
 		this.diccionario = new LinkedHashMap<String, String>();
 	}
 
@@ -19,8 +20,9 @@ public class Diccionario {
 	}
 
 	public String traduce(String esp) {
-		String traduccion = diccionario.get(esp);
 
+		String traduccion = diccionario.get(esp.toLowerCase());
+		diccionario.containsKey(traduccion);
 		if (traduccion != null) {
 			return traduccion;
 		}
@@ -43,5 +45,9 @@ public class Diccionario {
 
 	public String primeraLetraTraduccion(String esp) {
 		return traduce(esp).substring(0, 1);
+	}
+
+	public Map<String, String> getDiccionario() {
+		return diccionario;
 	}
 }
